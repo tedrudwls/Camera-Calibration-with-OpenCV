@@ -16,7 +16,7 @@
    - 지정한 폴더에서 `.jpg`, `.jpeg`, `.png`, `.bmp` 이미지를 모두 읽어옵니다.
 
 2. **체커보드 코너 검출 & 서브픽셀 보정**
-   - `cv.findChessboardCorners`, `cv.cornerSubPix`를 이용해 각 이미지에서 체커보드 내부 코너를 탐지합니다. :contentReference[oaicite:0]{index=0}  
+   - `cv.findChessboardCorners`, `cv.cornerSubPix`를 이용해 각 이미지에서 체커보드 내부 코너를 탐지합니다.
    - 코너 검출에 성공한 이미지들만 캘리브레이션에 사용됩니다.
    - 첫 번째 성공 이미지에 코너를 그려 **`chessboard_corners_example.png`** 로 저장합니다.
 
@@ -26,7 +26,7 @@
      - 왜곡 계수 **distortion coefficients**  
      - 각 이미지에서의 회전/이동 벡터 **(rvecs, tvecs)**  
      - **RMS reprojection error**  
-     를 계산합니다. :contentReference[oaicite:1]{index=1}  
+     를 계산합니다.
 
 4. **왜곡 보정(Undistortion) 이미지 생성**
    - 첫 번째 이미지를 이용해 왜곡을 보정하고,  
@@ -51,19 +51,19 @@
 
 다음 사이트에서 체커보드를 생성하거나 다운로드할 수 있습니다.
 
-- **Calibration Checkerboard Collection (Mark Hedley Jones)** :contentReference[oaicite:2]{index=2}  
+- **Calibration Checkerboard Collection (Mark Hedley Jones)** 
   - 다양한 크기의 고품질 체커보드 PDF 제공
-- **Calib.io – Camera Calibration Pattern Generator** :contentReference[oaicite:3]{index=3}  
+- **Calib.io – Camera Calibration Pattern Generator** :
   - 원하는 내부 코너 개수 / 셀 크기를 설정해서 PDF를 생성할 수 있는 패턴 제너레이터
 
 > **중요:** 프린트할 때 **페이지 스케일링(맞춤/축소)** 옵션을 끄고 출력해야  
-> 셀 크기가 정확하게 유지되어 캘리브레이션 오차가 줄어듭니다. :contentReference[oaicite:4]{index=4}  
+> 셀 크기가 정확하게 유지되어 캘리브레이션 오차가 줄어듭니다. 
 
 ### 2.2 체커보드 촬영
 
 1. 출력한 체커보드를 단단한 판에 붙입니다.
 2. **여러 각도/거리/위치**에서 체커보드를 촬영합니다.
-   - 기울기, 거리, 위치가 다양할수록 좋은 캘리브레이션 결과를 얻을 수 있습니다. :contentReference[oaicite:5]{index=5}  
+   - 기울기, 거리, 위치가 다양할수록 좋은 캘리브레이션 결과를 얻을 수 있습니다.
 3. 캘리브레이션에 사용할 이미지를 한 폴더에 모읍니다.
    - 예시: `./images/chess_01.jpg`, `./images/chess_02.jpg`, ...
 
