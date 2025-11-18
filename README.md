@@ -1,9 +1,9 @@
 # Camera Calibration with OpenCV (Python)
 
 체커보드 이미지를 이용해 **단일 카메라 캘리브레이션**을 수행하고,  
-코너 시각화 / RMS 에러 / 카메라 내참수 / 왜곡 보정 이미지 / 카메라 포즈까지 한 번에 생성하는 스크립트입니다.
+코너 시각화 / RMS 에러 / 카메라 intrinsic 파라미터 / 왜곡 보정 이미지 / 카메라 포즈까지 한 번에 생성하는 스크립트입니다.
 
-이 레포지토리는 특히 **컴퓨터 비전 수업 과제용**으로 설계되었으며,  
+**대학원 고급 컴퓨터 비전 수업 과제용**으로 작성되었으며,  
 직접 촬영한 체커보드 이미지들만 있으면 바로 카메라 캘리브레이션 결과를 얻을 수 있습니다.
 
 ---
@@ -22,7 +22,7 @@
 
 3. **카메라 캘리브레이션**
    - OpenCV의 `cv.calibrateCamera`를 이용해  
-     - 카메라 내참수 행렬 **K**  
+     - 카메라 intrinsic 행렬 **K**  
      - 왜곡 계수 **distortion coefficients**  
      - 각 이미지에서의 회전/이동 벡터 **(rvecs, tvecs)**  
      - **RMS reprojection error**  
@@ -98,32 +98,4 @@ python camera_calib_from_images.py \
   --output_dir ./calib_results \
   --visualize_poses
 ```
-인자 설명
 
---images_dir
-캘리브레이션에 사용할 체커보드 이미지들이 들어 있는 폴더 경로
-(예: ./images, /home/user/cv/images)
-
---pattern_cols
-체커보드 가로 방향 내부 코너 수
-
-예: 11칸짜리 체커보드 → 내부 코너는 10개 → --pattern_cols 10
-
---pattern_rows
-체커보드 세로 방향 내부 코너 수
-
-예: 8칸짜리 체커보드 → 내부 코너는 7개 → --pattern_rows 7
-
---cell_size
-체커보드 한 칸의 실제 크기 (단위: 미터)
-
-예: 25 mm → 0.025
-
-예: 30 mm → 0.03
-
---output_dir
-결과 이미지 및 텍스트 파일이 저장될 폴더 (기본값: ./calib_results)
-
---visualize_poses
-옵션 플래그.
-붙이면 카메라 포즈를 3D로 시각화한 camera_poses.png 를 추가로 저장합니다.
