@@ -82,3 +82,48 @@
 
 ```bash
 pip install opencv-python numpy matplotlib
+```
+
+---
+
+## 4. 사용법
+
+### 4.1 기본 실행
+```bash
+python camera_calib_from_images.py \
+  --images_dir ./images \
+  --pattern_cols 10 \
+  --pattern_rows 7 \
+  --cell_size 0.025 \
+  --output_dir ./calib_results \
+  --visualize_poses
+```
+인자 설명
+
+--images_dir
+캘리브레이션에 사용할 체커보드 이미지들이 들어 있는 폴더 경로
+(예: ./images, /home/user/cv/images)
+
+--pattern_cols
+체커보드 가로 방향 내부 코너 수
+
+예: 11칸짜리 체커보드 → 내부 코너는 10개 → --pattern_cols 10
+
+--pattern_rows
+체커보드 세로 방향 내부 코너 수
+
+예: 8칸짜리 체커보드 → 내부 코너는 7개 → --pattern_rows 7
+
+--cell_size
+체커보드 한 칸의 실제 크기 (단위: 미터)
+
+예: 25 mm → 0.025
+
+예: 30 mm → 0.03
+
+--output_dir
+결과 이미지 및 텍스트 파일이 저장될 폴더 (기본값: ./calib_results)
+
+--visualize_poses
+옵션 플래그.
+붙이면 카메라 포즈를 3D로 시각화한 camera_poses.png 를 추가로 저장합니다.
